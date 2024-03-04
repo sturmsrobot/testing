@@ -1,13 +1,15 @@
 function sum(a, b) {
-  const result = a + b;
-  return result;
+  return a + b;
 }
 
-function divide(a, b) {
-  return a / b;
+function substract(a, b) {
+  return a - b;
 }
 
-// Im Browser/in Javascript: export default ...
-// Wir sind hier aber in NodeJS!
+function multiply(a, b) {
+  return a * b;
+}
+
 module.exports.sum = sum;
-module.exports.divide = divide;
+module.exports.substract = substract;
+module.exports.multiply = multiply;
