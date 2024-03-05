@@ -1,3 +1,6 @@
 // Folgender Code wirft einen SyntaxError
-
-console.log Hallo Welt!;
+try {
+  console.log("Hallo Welt!");
+} catch {
+  console.log("Fehler :" + err);
+}

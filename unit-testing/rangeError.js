@@ -3,7 +3,7 @@ const array = [];
 
 try {
   array.length = -1;
-  //ab hier Sinflut
+  //ab hier Sintflut
   console.log("nie");
 } catch (err) {
   console.log("Hallo");

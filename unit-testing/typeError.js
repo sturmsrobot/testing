@@ -1,7 +1,10 @@
 // Folgender Code wirft einen TypeError
-
 const zahl = 1024;
 
-zahl.map((item) => {
-  console.log(item);
-});
+try {
+  zahl.map((item) => {
+    console.log(item);
+  });
+} catch (err) {
+  console.log("Fehler :" + err);
+}

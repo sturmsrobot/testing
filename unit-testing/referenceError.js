@@ -1,3 +1,6 @@
 // Folgender Code wirft einen ReferenceError
-
-meineLieblingsFunktion();
+try {
+  meineLieblingsFunktion();
+} catch (err) {
+  console.log("Fehler: " + err);
+}
