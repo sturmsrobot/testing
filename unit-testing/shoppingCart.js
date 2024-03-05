@@ -1,24 +1,26 @@
-// shoppingCart.test.js
-const shoppingCart = require("./shoppingCart");
+const cart = [];
 
-describe("Shopping Cart", () => {
-  beforeEach(() => {
-    shoppingCart.cart = [];
+function addCartItem(name, value) {
+  cart.push({
+    name,
+    value,
   });
+}
 
-  test("Der Gesamtwert des Cart ist bei 0 Items gleich 0", () => {
-    expect(shoppingCart.getTotalValue()).toBe(0);
-  });
+function getTotalValue() {
+  let result = 0;
+  for (item in cart) {
+    result += item.value;
+  }
+  return result;
+}
 
-  test("Nach dem ersten addCartItem() muss die Array-Laenge 1 sein", () => {
-    shoppingCart.addCartItem("Apfel", 5);
+function getTotalValue2() {
+  let result = 0;
+  cart.forEach((item) => (result += item.value));
+  return result;
+}
 
-    expect(shoppingCart.cart.length).toBe(1);
-  });
-
-  test("Nach dem zweiten addCartItem() muss die Array-Laenge 2 sein", () => {
-    shoppingCart.addCartItem("Birne", 3);
-
-    expect(shoppingCart.cart.length).toBe(2);
-  });
-});
+module.exports.cart = cart;
+module.exports.addCartItem = addCartItem;
+module.exports.getTotalValue = getTotalValue;
