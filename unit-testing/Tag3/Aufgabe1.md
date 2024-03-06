@@ -28,4 +28,4 @@
 - **Testfälle für Abzüge und Zulagen:** Stellen Sie sicher, dass die Funktion spezifische Abzüge und Zulagen korrekt berücksichtigt, indem Sie Testfälle für verschiedene Szenarien in verschiedenen Branchen oder Regionen erstellen.
 - **Testfälle für zusätzliche Faktoren:** Überprüfen Sie, ob Bonuszahlungen und Sachleistungen ordnungsgemäß in die Berechnung einbezogen werden, indem Sie Testfälle für verschiedene Arten von zusätzlichen Einkommensbestandteilen erstellen.
 
-# => Durch die Verwendung eines TDD-Ansatzes könnte man sicherstellen, dass die Funktion korrekt und zuverlässig arbeitet und alle relevanten Aspekte berücksichtigt, bevor man mit der eigentlichen Implementierung beginnt.
+## => Durch die Verwendung eines TDD-Ansatzes könnte man sicherstellen, dass die Funktion korrekt und zuverlässig arbeitet und alle relevanten Aspekte berücksichtigt, bevor man mit der eigentlichen Implementierung beginnt.
