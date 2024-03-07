@@ -34,4 +34,59 @@ describe("Testing POST Functions of Todo Route", () => {
       { newDueDate: myDate, newIsDone: false, newTask: "Essen", newUserId: 1 }
     );
   });
+
+  test("Teste MARK Todo Funktion", async () => {
+    const mockData = {
+      data: { updatedTodo: returnedTodo1 },
+    };
+    axios.put.mockResolvedValue(mockData);
+    const result = await TodosMutations.markTodo(6, true);
+
+    expect(result).toEqual(mockData.data.updatedTodo);
+    expect(axios.put).toHaveBeenCalledTimes(1);
+    expect(axios.put).toHaveBeenCalledWith(
+      "http://localhost:5050/v1/todos/mark",
+      { todoId: 6, newIsDone: true }
+    );
+  });
+
+  test("Teste UPDATED Todo Funktion", async () => {
+    const mockData = {
+      data: { updatedTodo: returnedTodo1 },
+    };
+    axios.put.mockResolvedValue(mockData);
+    const result = await TodosMutations.updateTodo(
+      6,
+      "Neuer Task",
+      true,
+      new Date()
+    );
+
+    expect(result).toEqual(mockData.data.updatedTodo);
+    expect(axios.put).toHaveBeenCalledTimes(1);
+    expect(axios.put).toHaveBeenCalledWith(
+      "http://localhost:5050/v1/todos/update",
+      {
+        todoId: 6,
+        newTask: "Neuer Task",
+        newIsDone: true,
+        newDueDate: expect.any(Date),
+      }
+    );
+  });
+
+  test("Teste DELETE Todo Funktion", async () => {
+    const mockData = {
+      data: { deletedTodosId: 6 },
+    };
+    axios.delete.mockResolvedValue(mockData);
+    const result = await TodosMutations.deleteTodo(6);
+
+    expect(result).toEqual(mockData.data.deletedTodosId);
+    expect(axios.delete).toHaveBeenCalledTimes(1);
+    expect(axios.delete).toHaveBeenCalledWith(
+      "http://localhost:5050/v1/todos/delete",
+      { data: { todoId: 6 } }
+    );
+  });
 });
