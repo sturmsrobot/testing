@@ -37,31 +37,29 @@ describe("Testing GET Functions of Todo Route", () => {
 
   test("Teste GET ById Funktion", async () => {
     const myInput = {
-      data: { todo: returnedTodo1 },
+      data: { todos: returnedTodo1 },
     };
 
     axios.get.mockResolvedValue(myInput);
 
     const result = await TodosQueries.fetchTodoById(6);
+  });
 
-    test("Teste GET ByUserId Funktion", async () => {
-      const myInput = {
-        data: { todo: returnedTodo1 }, // simuliert Antwort für UserId
-      };
+  test("Teste GET ByUserId Funktion", async () => {
+    const myInput = {
+      data: { todos: returnedTodo1 }, // simuliert Antwort für UserId
+    };
 
-      axios.get.mockResolvedValue(myInput);
+    axios.get.mockResolvedValue(myInput);
 
-      const userId = 1;
-      const resultByUserId = await TodosQueries.fetchTodoByUserId(userId);
+    const userId = 1;
+    const result = await TodosQueries.fetchTodoByUserId(userId);
 
-      const result = await TodosQueries.fetchTodoById(6);
-
-      expect(result).toEqual(myInput.data);
-      expect(axios.get).toHaveBeenCalledTimes(2);
-      expect(axios.get).toHaveBeenCalledWith(
-        "http://localhost:5050/v1/todos/byuserid",
-        { params: { userId } }
-      );
-    });
+    expect(result).toEqual(myInput.data.todos);
+    expect(axios.get).toHaveBeenCalledTimes(3);
+    expect(axios.get).toHaveBeenCalledWith(
+      "http://localhost:5050/v1/todos/byuserid",
+      { params: { userId } }
+    );
   });
 });
