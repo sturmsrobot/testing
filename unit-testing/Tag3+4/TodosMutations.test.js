@@ -1,7 +1,6 @@
 const axios = require("axios");
 const TodosMutations = require("./TodosMutations");
 
-// Axios .get Methode soll die weitere Funktion mockResolvedValue erhalten
 jest.mock("axios");
 
 const returnedTodo1 = {
