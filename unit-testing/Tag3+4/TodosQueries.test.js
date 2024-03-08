@@ -37,7 +37,7 @@ describe("Testing GET Functions of Todo Route", () => {
 
   test("Teste GET ById Funktion", async () => {
     const myInput = {
-      data: { todos: returnedTodo1 },
+      data: { todo: returnedTodo1 },
     };
 
     axios.get.mockResolvedValue(myInput);

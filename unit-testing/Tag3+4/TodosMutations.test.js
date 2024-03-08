@@ -50,6 +50,7 @@ describe("Testing POST Functions of Todo Route", () => {
   });
 
   test("Teste UPDATED Todo Funktion", async () => {
+    const myDate = new Date();
     const mockData = {
       data: { updatedTodo: returnedTodo1 },
     };
@@ -58,7 +59,7 @@ describe("Testing POST Functions of Todo Route", () => {
       6,
       "Neuer Task",
       true,
-      new Date()
+      myDate
     );
 
     expect(result).toEqual(mockData.data.updatedTodo);
@@ -69,7 +70,7 @@ describe("Testing POST Functions of Todo Route", () => {
         todoId: 6,
         newTask: "Neuer Task",
         newIsDone: true,
-        newDueDate: expect.any(Date),
+        newDueDate: myDate,
       }
     );
   });
